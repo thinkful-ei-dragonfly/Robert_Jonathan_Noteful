@@ -12,8 +12,10 @@ import { Route } from 'react-router-dom';
 // import browser router
 
 export default class App extends React.Component {
-
-  
+state = state
+folderClick = id => {
+  this.setState({selectedFolder: id})
+}  
 
 
   render() {
@@ -25,15 +27,15 @@ export default class App extends React.Component {
           {/* HANDLE INVALID PATH WITH SWITCH */}
           
           <section>
-            <Route path='/' render={(props) => < MainFolderList {...props} folders={state.folders} />} />
-            <Route exact path='/folder/:folderID' component={MainFolderList}/>
+            <Route exact path='/' render={(props) => < MainFolderList {...props} folders={state.folders} folderClick={this.folderClick} />} />
+            <Route exact path='/folder/:folderID' render ={(props) => < MainFolderList {...props} folders={state.folders} folderClick={this.folderClick}/>} />
+            {/* <Route exact path='/folder/:folderID' render={(props) => <NoteListNav {...props} notes={state.notes} selected={state.selected}/>} /> */}
             {/* <Route exact path='/note/:noteID' component={FolderName}/> */}
           </section>
 
           <section>
             <Route path='/' render={(props) => < MainNoteList {...props} notes={state.notes} />}/> 
-            {/* <Route exact path='/note/:noteID' component={Note} /> 
-            <Route exact path='/folder/:folderID' component={NoteListNav}/> */}
+            {/* <Route exact path='/note/:noteID' component={Note} /> */}
           </section>
         
 

@@ -1,14 +1,14 @@
 import React from 'react'
 
-export default function Folder(props) {
-  
-  
+export default class Folder extends React.Component {
+  handleFolderClick = id => {
+  console.log(id)
+  this.props.folderClick(id);
+  }
 
+  render(){
   return (
-    <button id={props.id}>{props.name}</button>
+    <button onClick={() => this.handleFolderClick(this.props.id)} id={this.props.id}>{this.props.name}</button>
   );
-
-  
-
-
-}
+  }
+  }
