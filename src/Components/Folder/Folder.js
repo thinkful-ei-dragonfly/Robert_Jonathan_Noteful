@@ -1,8 +1,14 @@
 import React from 'react'
 
-export default function Folder(){
+export default function Folder(props) {
   
+  
+
   return (
-    <li>Folder 1</li>
-  )
+    <button id={props.id}>{props.name}</button>
+  );
+
+  
+
+
 }
